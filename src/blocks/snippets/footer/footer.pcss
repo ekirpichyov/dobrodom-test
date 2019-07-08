@@ -1,0 +1,148 @@
+footer {
+  width: 100%;
+  background-image: url("../images/map.png");
+  background-position-x: center;
+  background-position-y: -500px;
+  .wrapper.map {
+    height: 480px;
+  }
+
+  & .social-circle, .social-icon {
+    transition: .15s linear;
+  }
+
+  & .social-circle {
+    stroke: transparent;
+  }
+
+  & a:hover .social-icon {
+    fill: #fec400;
+  }
+
+  #footer_yandex-map {
+    z-index: 9;
+    height: 480px;
+    width: 100vw;
+    max-width: 100%;
+    position: absolute;
+    bottom: 110px;
+    left: 0;
+  }
+  
+  .footer {
+    &_map {
+      position: relative;
+      display: block;
+      width: 370px;
+      background-color: #fff;
+      border-top: 4px solid #fecc00;
+      padding: 40px;
+      box-sizing: border-box;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+
+      &.noscript {
+        transform: translate(-45px, -30px);
+        margin: 0 auto;
+      }
+
+      &-title {
+        font-size: 21px;
+        line-height: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      &-contacts a {
+        color: #2e97de;
+        text-decoration: underline;
+      }
+
+      &::after {
+        position: absolute;
+        left: 0;
+        bottom: -19px;
+        content: " ";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 20px solid #fff;
+        border-right: 20px solid transparent;
+      }
+    }
+
+    &_stripe {  
+      height: 110px;
+      background-color: #2b2a29;
+    }
+
+    &_social-list {
+      display: flex;
+    }
+  }
+}
+
+footer .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
+header {
+    width: 100%;
+    height: 70px;
+    top: 20px;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    transition: background-color .25s ease;
+    background-color: transparent;
+}
+
+@media only screen and (max-width: 1200px) {
+    .footer_stripe {
+        padding-left: 30px;
+        padding-right: 30px;
+        box-sizing: border-box;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .footer {
+        &_logo {
+            width: 175px;
+        }
+        &_logo img {
+            width: 100%;
+        }
+        &_nav a {
+            font-size: 14px;
+            padding: 0 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .footer_stripe {
+        &_logo {
+            width: 250px;
+        }
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .footer_stripe {
+        &_logo {
+            width: 200px;
+        }
+    }
+    .footer .wrapper {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-top: 5px;
+    }
+    .footer_social-item {
+      margin-right: -10px;
+    }
+}

@@ -1,0 +1,160 @@
+.customers {
+  background-color: #eee;
+  height: 800px;
+
+  & .wrapper {
+    padding-bottom: 120px;
+    padding-top: 120px;
+  }
+
+  &-title {
+    margin-bottom: 50px;
+  }
+
+  &_slider {
+    width: 100%;
+    position: relative;
+  }
+
+
+  .flickity-button {
+    background: transparent;
+
+    &:hover {
+      background: transparent;
+    }
+    &-icon path {
+      fill: #FECC00;
+    }
+  }
+  .flickity-prev-next-button {
+    width: 160px;
+    height: 160px;
+  }
+  &_userpic {
+    width: 100%;
+    margin-bottom: 30px;
+    &-item {
+      opacity: .5;
+      transform: scale(.75);
+      transition: transform .3s linear, opacity .3s linear;
+      height: 140px;
+      width: 140px;
+      clip-path: circle(70px at 70px 70px);
+      img {
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+      }
+      &.is-selected {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+  &_text {
+    margin: 0 auto;
+    width: 100%;
+  }
+  &_item {
+    pointer-events: none;
+    width: 100%;
+    display: flex;
+    opacity: 0;
+    position: absolute;
+    transform: scale(.5);
+    transition: opacity .5s linear, transform .3s ease;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &.is-selected {
+      transform: scale(1);
+      opacity: 1;
+    }
+    &-name {
+      font-size: 22px;
+      color: #2b2a29;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    &-about {
+      font-size: 18px;
+      color: #f5b900;
+      margin-bottom: 30px;
+    }
+
+    &-cite {
+      font-size: 18px;
+      line-height: 24px;
+      color: #2b2a29;
+      max-width: 750px;
+      opacity: .8;
+      position: relative;
+
+      &::before, &::after {
+        content: " ";
+        position: absolute;
+        display: block;
+        width: 16px;
+        height: 11px;
+        left: -36px;
+        background-image: url("../images/svg/customers/cite.svg");
+      }
+      &::after {
+        transform: rotate(180deg);
+        right: -36px;
+        bottom: 0;
+        left: auto;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .customers {
+    height: auto;
+    & .wrapper {
+      padding-bottom: 90px;
+      padding-top: 90px;
+    }
+    &_text {
+      box-sizing: border-box;
+    }
+    &_item {
+      padding: 0 50px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+
+}
+
+@media only screen and (max-width: 768px) {
+  .customers {
+    & .wrapper {
+      padding-bottom: 60px;
+      padding-top: 60px;
+    }
+    &_userpic {
+      &-item {
+        opacity: .1;
+        transform: scale(.5)
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .customers {
+    & .wrapper {
+      padding-bottom: 45px;
+      padding-top: 45px;
+    }
+  }
+}
+

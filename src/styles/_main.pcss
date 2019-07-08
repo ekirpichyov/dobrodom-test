@@ -1,0 +1,115 @@
+@font-face {
+  font-family: 'PF Din Display Pro Regular';
+  src: url("../fonts/PFDinDisplayPro-Regular.eot");
+  src: url("../fonts/PFDinDisplayPro-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/PFDinDisplayPro-Regular.woff") format("woff"), url("../fonts/PFDinDisplayPro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  position: relative;
+}
+html {
+  overflow-x: hidden;
+}
+.section-title {
+  position: relative;
+  font-size: 36px;
+  line-height: 42px;
+  margin-top: 44px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #2b2a29;
+  
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    bottom: 82px;
+    left: calc(50% - 40px);
+    background-color: #fec400;
+  }
+}
+
+* {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-decoration: none;
+  font-family: 'PF Din Display Pro Regular', sans-serif;
+}
+
+.wrapper {
+  max-width: 1190px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.btn {
+  display: block;
+  padding: 20px 40px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: transform .15s ease-in-out;
+
+  &-primary {
+    background-color: #fec400;
+    color: #2b2a29;
+  }
+
+  &-black {
+    background-color: #2b2a29;
+    color: #fec400;
+  }
+
+  &-gray {
+    background-color: transparent;
+    color: #c1c1c1;
+    border: 2px solid #c1c1c1;
+  }
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .section-title {
+    margin-bottom: 40px;
+    font-size: 32px;
+    line-height: 36px;
+    margin-top: 36px;
+    
+    &:before {
+      width: 80px;
+      height: 4px;
+      bottom: 62px;
+    }
+  }
+
+  .btn {
+    padding: 15px 30px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .section-title {
+    margin-bottom: 30px;
+    font-size: 24px;
+    line-height: 36px;
+    margin-top: 30px;
+    
+    &:before {
+      width: 60px;
+      height: 4px;
+      bottom: 62px;
+      left: calc(50% - 30px);
+    }
+  }
+}

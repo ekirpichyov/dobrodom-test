@@ -1,0 +1,180 @@
+header {
+    width: 100%;
+    height: 70px;
+    top: 20px;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    transition: background-color .25s ease;
+    background-color: transparent;
+}
+
+.header {
+    &_menu-button {
+        display: none;
+    }
+    &_logo {
+        display: inline-block;
+        line-height: 70px;
+    }
+
+    &_logo img {
+        vertical-align: middle;
+    }
+
+    &_nav {
+        float: right;
+        height: 100%;
+    }
+
+    &_nav a {
+        display: inline-block;
+        position: relative;
+        padding: 0 15px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 70px;
+        vertical-align: middle;
+        text-transform: uppercase;
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #fff;
+            bottom: 15px;
+            transition: width .2s ease-in-out;
+        }
+
+        &:hover::after {
+            width: calc(100% - 30px);
+        } 
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    header {
+        padding-left: 30px;
+        padding-right: 30px;
+        box-sizing: border-box;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .header {
+        &_logo {
+            width: 175px;
+        }
+        &_logo img {
+            width: 100%;
+        }
+        &_nav a {
+            font-size: 14px;
+            padding: 0 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header {
+        display: flex;
+        justify-content: center;
+        &_logo {
+            width: 250px;
+        }
+        &_menu {
+            &-button {
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: block;
+                width: 60px;
+                height: 60px;
+                z-index: 2;
+                border-radius: 50%;
+                margin: 10px;
+                position: absolute;
+                cursor: pointer;
+                transition-duration: 0.66s;
+                transition-timing-function: swing;
+            }
+
+            &-icon {
+                width: 30px;
+                height: 4px;
+                background-color: white;
+                position: absolute;
+                top: 28px;
+                left: 15px;
+                transition: all .3s ease-in-out;
+                &::before, &::after {
+                    width: 30px;
+                    height: 4px;
+                    background-color: white;
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    transition: all .3s ease-in-out;
+                }
+
+                &::before {
+                    top: -9px;
+                }
+                &::after {
+                    top: 9px;
+                }
+                &.active {
+                    width: 0;
+                }
+
+                &.active::before {
+                    transform: translateY(9px) rotate(45deg);
+                }
+                &.active::after {
+                    transform: translateY(-9px) rotate(-45deg);
+                }
+            }
+        }
+        &_nav {
+            transition: all .25s ease-in-out;
+            perspective: 400px;
+            transform: rotateX(-90deg) rotateY(-20deg) translateX(100px) translateY(-200px);
+            opacity: 0;
+            pointer-events: none;
+            display: flex;
+            position: absolute;
+            top: 10px;
+            right: 80px;
+            background-color: #2b2a29;
+            flex-direction: column;
+            height: auto;
+            border-radius: 5px;
+            &.active {
+                pointer-events: all;
+                opacity: 1;
+                transform: rotateX(0deg) rotateY(0deg) translateX(0px) translateY(0px);
+            }
+
+            & a::after {
+                content: none;
+            }
+        }
+
+        &_nav a {
+            padding: 0 30px;
+            line-height: 60px;
+        }
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .header {
+        display: block;
+        &_logo {
+            width: 200px;
+        }
+    }
+}

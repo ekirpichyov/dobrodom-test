@@ -1,0 +1,115 @@
+.trust {
+  background: #eee;
+  background-image: url("../images/trust/man.png");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 25%;
+  color: #2b2a29;
+
+
+  & .wrapper {
+    padding-top: 120px;
+    padding-bottom: 160px;
+  }
+
+  &_title {
+    margin-bottom: 75px;
+
+     &:before {
+      background-color: #fec400;
+    }
+  }
+
+  &_list {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  &_item {
+    width: 320px;
+    margin-left: 112px;
+    margin-bottom: 60px;
+
+    &-title {
+      display: block;
+      position: relative;
+      font-size: 22px;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+
+      &:before {
+        content: "";
+        display: block;
+        width: 52px;
+        height: 52px;
+        position: absolute;
+        top: -10px;
+        left: -72px;
+        background-image: url("../images/svg/trust/check.svg");
+      }
+    }
+  
+    &-text {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+  .trust {
+    background-image: none;
+
+    & .wrapper {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+
+    &_list {
+      justify-content: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .trust {
+    & .wrapper {
+      padding-bottom: 40px;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    &_title {
+      margin-bottom: 40px;
+    }
+    &_item {
+      margin-left: 0px;
+      margin-bottom: 40px;
+      padding-left: 30px;
+      padding-right: 30px;
+      &-title {
+        &:before {
+          content: none;
+          background-image: none;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .trust {
+    & .wrapper {
+      padding-top: 45px;
+      padding-bottom: 45px;
+    }
+    &_item {
+      &-title {
+        text-align: center;
+      }
+    }
+  }
+}
