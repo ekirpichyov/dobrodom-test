@@ -1,4 +1,4 @@
-window._animate = (draw, duration = 1000) => {
+window._animate = (draw, duration = 750) => {
     animate({
         duration,
         timing: makeEaseInOut(quad),

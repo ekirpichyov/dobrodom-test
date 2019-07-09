@@ -5,12 +5,12 @@ const block = document.querySelector(button.getAttribute("href"));
 const handleClick = e => {
     e.preventDefault();
 
-    const top =  document.documentElement.clientTop - (window.pageYOffset ||  document.documentElement.scrollTop || document.body.scrollTop || 0) + header.getBoundingClientRect().height;
-    const rect = block.getBoundingClientRect();
-    const offset = rect.top - top;
-    
+    const currentScroll = (window.pageYOffset ||  document.documentElement.scrollTop || document.body.scrollTop || 0);
+    const top =  document.documentElement.clientTop - currentScroll + header.getBoundingClientRect().height;
+    const offset = block.getBoundingClientRect().top - top;
+
     window._animate(progress => {
-        window.scrollTo(0, ((window.pageYOffset ||  document.documentElement.scrollTop || document.body.scrollTop || 0) * (1 - progress)) + (progress * offset));
+        window.scrollTo(0, (currentScroll * (1 - progress)) + (progress * offset));
     });
 }
 
