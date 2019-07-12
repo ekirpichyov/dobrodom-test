@@ -23,7 +23,10 @@ const gulp = require("gulp"),
   replace = require("gulp-replace"),
   postcss = require("gulp-postcss"),
   postcssScss = require("postcss-scss"),
-  include = require('gulp-include');
+  csso = require('gulp-csso'),
+  gcmq = require('gulp-group-css-media-queries'),
+  include = require('gulp-include'),
+  cleanCSS = require('gulp-clean-css');
 
 // plugins postcss
 const plugins = [
@@ -57,15 +60,22 @@ const plugins = [
 gulp.task("styles", function() {
   return gulp
     .src(["src/styles/_*.pcss", "src/blocks/**/*.pcss"])
+    // .src(["src/blocks/about/*.pcss"])
     .pipe(plumber())
     .pipe(concat("styles.pcss"))
     .pipe(sourcemaps.init())
     .pipe(postcss(plugins, { parser: postcssScss, syntax: postcssScss }))
+    .pipe(gcmq())
+    .pipe(cleanCSS({
+      level: {2: {all: true}}
+    }))
+    .pipe(csso())
     .pipe(rename({ suffix: ".min", extname: ".css" }))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("dist/css/"))
     .pipe(browserSync.reload({ stream: true }));
 });
+
 
 // Scripts
 gulp.task("scripts", function() {
@@ -79,8 +89,8 @@ gulp.task("scripts", function() {
       })
     )
     .pipe(concat("main.min.js"))
-    .pipe(concatUtil.header("document.addEventListener('DOMContentLoaded', function(event) {"))
-    .pipe(concatUtil.footer("})"))
+    .pipe(concatUtil.header('document.addEventListener("DOMContentLoaded", function(event) { \n'))
+    .pipe(concatUtil.footer("\n})"))
     .pipe(uglify()) // Minify js (opt)
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("dist/js/"))
@@ -105,6 +115,11 @@ gulp.task("libscss", function() {
     .src(["src/styles/libs.pcss"])
     .pipe(plumber())
     .pipe(postcss([require("postcss-import"), require("cssnano")]))
+    .pipe(gcmq())
+    .pipe(cleanCSS({
+      level: {2: {all: true}}
+    }))
+    .pipe(csso())
     .pipe(rename({ suffix: ".min", extname: ".css" }))
     .pipe(gulp.dest("dist/css/"))
     .pipe(browserSync.reload({ stream: true }));
