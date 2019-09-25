@@ -60,7 +60,6 @@ const plugins = [
 gulp.task("styles", function() {
   return gulp
     .src(["src/styles/_*.pcss", "src/blocks/**/*.pcss"])
-    // .src(["src/blocks/about/*.pcss"])
     .pipe(plumber())
     .pipe(concat("styles.pcss"))
     .pipe(sourcemaps.init())
