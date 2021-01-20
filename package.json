@@ -19,7 +19,7 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.17.2",
-    "gsap": "^2.0.2",
+    "gsap": "^3.6.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
     "gulp-cache": "^0.2.10",
